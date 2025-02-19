@@ -7,14 +7,33 @@ function Calendar (){
 
     return (
 
-        <div>
+        <div className=" w-3x1" >
 
-            <FullCalendar
+            <FullCalendar 
             
                 plugins={[dayGridPlugin, timeGridPlugin]}
-                initialView="timeGridDay"
+                initialView="timeGridWeek"
+                locales={"allLocales"}
+                locale="pt-br"
+                
+                views={{
+                    timeGridWeek: {
+                        titleFormat: { year: 'numeric', month: 'long'}
+                    }
+                }}
+                buttonText={{
+                        today: "Hoje",
+                        month: "Mês",
+                        week: "Semana",
+                        day: "Dia",
+                        list: "Lista"
+                    }}   
                 headerToolbar={{
-                    right: 'dayGridMonth, timeGridWeek, timeGridDay'
+                    left: 'dayGridMonth, timeGridWeek, timeGridDay',
+                    center: 'title',
+                    right: 'today, prev, next'
+
+                    
                 }}
             
             />

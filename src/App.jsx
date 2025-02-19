@@ -4,7 +4,7 @@ function App() {
 
     return(
 
-        <div className="bg-cyan-100 w-full h-auto">
+        <div className=" w-[]">
 
             <div>
 
