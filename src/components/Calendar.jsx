@@ -1,8 +1,20 @@
 import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid"
 import timeGridPlugin from "@fullcalendar/timegrid"
+import interactionPlugin from "@fullcalendar/interaction"
+import NewEvent from "./NewEvent"
+import { useState } from "react"
 
 function Calendar (){
+
+    const [isDialogOpen, setIsDialogOpen] = useState(true);
+
+
+   function handleDateClick() {
+
+       setIsDialogOpen(true);
+
+    }
 
 
     return (
@@ -11,15 +23,21 @@ function Calendar (){
 
             <FullCalendar 
             
-                plugins={[dayGridPlugin, timeGridPlugin]}
+                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 initialView="timeGridWeek"
                 locales={"allLocales"}
                 locale="pt-br"
+                nowIndicator={true}
+                now={new Date()}
+                selectable={true}
+                dateClick={handleDateClick}
+                
                 
                 views={{
                     timeGridWeek: {
                         titleFormat: { year: 'numeric', month: 'long'}
-                    }
+                    },
+                    
                 }}
                 buttonText={{
                         today: "Hoje",
@@ -37,6 +55,8 @@ function Calendar (){
                 }}
             
             />
+
+            <NewEvent  isOpen={isDialogOpen} onOpenChange={setIsDialogOpen}/>
 
         </div>   
     )

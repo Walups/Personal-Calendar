@@ -10,7 +10,12 @@ function App() {
 
                 <h1>Calendário</h1>
                 
-                <div><Calendar/></div>
+                <div>
+                    
+                    <Calendar/>
+                    
+                
+                </div>
                 
             </div>
 
