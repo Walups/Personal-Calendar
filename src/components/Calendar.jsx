@@ -5,7 +5,7 @@ import interactionPlugin from "@fullcalendar/interaction"
 import NewEvent from "./NewEvent"
 import { useState } from "react"
 
-function Calendar (){
+function Calendar ({events}) {
 
     const [isDialogOpen, setIsDialogOpen] = useState(true);
 
@@ -31,7 +31,7 @@ function Calendar (){
                 now={new Date()}
                 selectable={true}
                 dateClick={handleDateClick}
-                
+                events={events}
                 
                 views={{
                     timeGridWeek: {
